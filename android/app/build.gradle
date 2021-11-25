@@ -37,6 +37,7 @@ android {
         applicationId "com.example.fish"
         minSdkVersion 16
         targetSdkVersion 30
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -48,6 +49,9 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+}
+dependencies {
+    implementation "androidx.multidex:multidex:2.0.1"
 }
 
 flutter {

@@ -1,6 +1,14 @@
+import 'package:fish/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+class LoginPage extends StatefulWidget {
+  @override
+  LoginPageState createState() => LoginPageState();
+}
 
-class LoginPage extends StatelessWidget {
+class LoginPageState extends State<LoginPage> {
+  Map? _userData;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,15 +51,49 @@ class LoginPage extends StatelessWidget {
                                     alignment: Alignment.center,
                                     color: Colors.white,
                                     icon: Icon(Icons.facebook),
-                                    onPressed: () {
-                                      print("Sign Up with Facebook");
+                                    onPressed: () async {
+
+                                      final result = await FacebookAuth.i.login(
+                                          permissions: ["public_profile", "email"]
+                                      );
+
+                                      if (result.status == LoginStatus.success) {
+
+                                        final userData = await FacebookAuth.i.getUserData(
+                                          fields: "email,name",
+                                        );
+
+                                        setState(() {
+                                          _userData = userData;
+                                          _navigateToHome();
+                                        });
+
+                                      }
+
                                     }),
                               ),
                               Expanded(
                                 flex: 5,
                                 child: TextButton(
-                                  onPressed: () {
-                                    print("Sign Up with Facebook");
+                                  onPressed: () async {
+
+                                    final result = await FacebookAuth.i.login(
+                                        permissions: ["public_profile", "email"]
+                                    );
+
+                                    if (result.status == LoginStatus.success) {
+
+                                      final userData = await FacebookAuth.i.getUserData(
+                                        fields: "email,name",
+                                      );
+
+                                      setState(() {
+                                        _userData = userData;
+                                        _navigateToHome();
+                                      });
+
+                                    }
+
                                   },
                                   child: Text(
                                     "Facebook",
@@ -133,5 +175,9 @@ class LoginPage extends StatelessWidget {
             )),
       ),
     );
+  }
+  _navigateToHome()async{
+    await Future.delayed(Duration(milliseconds: 7000), (){});
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 }
