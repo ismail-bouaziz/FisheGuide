@@ -1,4 +1,4 @@
-# fishe_guide
+# fish
 
 A new Flutter project.
 
