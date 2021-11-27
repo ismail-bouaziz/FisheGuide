@@ -1,44 +1,43 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'weather_albom.dart';
 class HomePage extends StatefulWidget {
   @override
   HomePageState createState() => HomePageState();
 }
 
 class HomePageState extends State<HomePage> {
-
-  String dropdownValue = 'One';
-
+  String dropdownValue = '';
+  var selectedDate;
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: Column(
           children: [
             Expanded(
-              flex: 5,
-              child:
-              Container(
+              flex: 7,
+              child: Container(
                 child: Column(
                   children: [
                     Expanded(
                         flex: 3,
-                        child:Container(
+                        child: Container(
                             color: Colors.white,
-                            child:
-                            Row(/*Ham*/
+                            child: Row(
+                              /*Ham*/
                               children: [
                                 Expanded(
-                                    flex:4,
-                                    child: Text("$dropdownValue"
-                                    )),
+                                    flex: 4, child: Text("$dropdownValue")),
                                 Expanded(
                                     flex: 1,
                                     child: Container(
                                       child: DropdownButton<String>(
-                                        icon: const Icon(Icons.album_outlined),
+                                        icon: const Icon(Icons.add_location),
                                         iconSize: 24,
                                         elevation: 16,
-                                        style: const TextStyle(color: Colors.black,),
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                        ),
                                         underline: Container(
                                           height: 0,
                                           color: Colors.deepPurpleAccent,
@@ -48,8 +47,13 @@ class HomePageState extends State<HomePage> {
                                             dropdownValue = newValue!;
                                           });
                                         },
-                                        items: <String>['One', 'Two', 'Free', 'Four']
-                                            .map<DropdownMenuItem<String>>((String value) {
+                                        items: <String>[
+                                          'One',
+                                          'Two',
+                                          'Free',
+                                          'Four'
+                                        ].map<DropdownMenuItem<String>>(
+                                            (String value) {
                                           return DropdownMenuItem<String>(
                                             value: value,
                                             child: Text(value),
@@ -60,99 +64,45 @@ class HomePageState extends State<HomePage> {
                               ],
                             ))),
                     Expanded(
-                        flex: 2,
-                        child: SingleChildScrollView(scrollDirection: Axis.horizontal,
-                          child: Row(/*Date*/
-                            children: [
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                              Container(
-                                width: 70,
-                                color: Colors.black,),
-                              Container(
-                                width: 70,
-                                color: Colors.white,),
-                            ],
-                          ),
-                        )
-                    ),
+                        flex: 4,
+                        child: Container(
+                          child: Weather(),
+                        )),
                   ],
                 ),
               ),
             ),
             Expanded(
               flex: 20,
-              child:
-              Container(
+              child: Container(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
                     children: [
                       Container(
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            border: Border(
+                              top:
+                              BorderSide(color: Colors.black12, width: 2),
+                              bottom:
+                              BorderSide(color: Colors.black12, width: 2),
+                            )),
                         width: double.infinity,
-                        height: 180,
-                        color: Colors.green,
-                        child: Column(
-                          children: [
-                            Row(/*meteo*/),
-                            Row(
-                              children: [
-                                /*icon*/
-                                Column(
-                                  children: [
-                                    Row(/*Data*/),
-                                    Row(/*Data*/),
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
+                        height: 150,
+                        child: Weather(),
                       ),
                       Container(
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            border: Border(
+                              top:
+                                BorderSide(color: Colors.black12, width: 2),
+                              bottom:
+                                  BorderSide(color: Colors.black12, width: 2),
+                            )),
                         width: double.infinity,
                         height: 180,
-                        color: Colors.white,
                         child: Column(
                           children: [
                             Row(/*soliel*/),
@@ -169,13 +119,27 @@ class HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            border: Border(
+                              top:
+                              BorderSide(color: Colors.black12, width: 2),
+                              bottom:
+                              BorderSide(color: Colors.black12, width: 2),
+                            )),
                         width: double.infinity,
-                        height: 180,
-                        color: Colors.green,/*marees*/),
+                        height: 180, /*marees*/),
                       Container(
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            border: Border(
+                              top:
+                              BorderSide(color: Colors.black12, width: 2),
+                              bottom:
+                              BorderSide(color: Colors.black12, width: 2),
+                            )),
                         width: double.infinity,
-                        height: 180,
-                        color: Colors.white,/*marees*/),
+                        height: 180, /*marees*/),
                     ],
                   ),
                 ),
@@ -183,12 +147,13 @@ class HomePageState extends State<HomePage> {
             ),
             Expanded(
               flex: 2,
-              child:
-              Container(
+              child: Container(
                 color: Colors.blue,
                 child: Row(
-                  children: [//button  menu
-                    Expanded(child: Column(
+                  children: [
+                    //button  menu
+                    Expanded(
+                        child: Column(
                       children: [
                         /* Expanded(
                             flex: 1,
@@ -213,9 +178,10 @@ class HomePageState extends State<HomePage> {
                             ),
                           ),
                         )
-                      ],)
-                    ),
-                    Expanded(child: Row(
+                      ],
+                    )),
+                    Expanded(
+                        child: Row(
                       children: [
                         Expanded(
                           flex: 1,
@@ -243,9 +209,10 @@ class HomePageState extends State<HomePage> {
                             ),
                           ),
                         )
-                      ],)
-                    ),
-                    Expanded(child: Row(
+                      ],
+                    )),
+                    Expanded(
+                        child: Row(
                       children: [
                         Expanded(
                           flex: 1,
@@ -273,9 +240,10 @@ class HomePageState extends State<HomePage> {
                             ),
                           ),
                         )
-                      ],)
-                    ),
-                    Expanded(child: Row(
+                      ],
+                    )),
+                    Expanded(
+                        child: Row(
                       children: [
                         Expanded(
                           flex: 1,
@@ -303,8 +271,8 @@ class HomePageState extends State<HomePage> {
                             ),
                           ),
                         )
-                      ],)
-                    ),
+                      ],
+                    )),
                   ],
                 ),
               ),

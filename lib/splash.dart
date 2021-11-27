@@ -6,10 +6,10 @@ class Splash extends StatefulWidget {
   const Splash({ Key? key }) : super(key: key);
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<Splash> createState() => SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class SplashState extends State<Splash> {
    late VideoPlayerController controller;
   @override
   void initState(){
@@ -23,7 +23,7 @@ class _SplashState extends State<Splash> {
 
 
   _navigateToLoginPage()async{
-    await Future.delayed(Duration(milliseconds: 7000), (){});
+    await Future.delayed(Duration(milliseconds: 8000), (){});
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 
