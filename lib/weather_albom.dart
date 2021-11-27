@@ -76,6 +76,7 @@ class WeatherState extends State<Weather> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
           child: FutureBuilder<WeatherAlbum>(

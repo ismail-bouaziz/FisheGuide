@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'weather_albom.dart';
+import 'package:animated_horizontal_calendar/animated_horizontal_calendar.dart';
 class HomePage extends StatefulWidget {
   @override
   HomePageState createState() => HomePageState();
@@ -66,7 +67,27 @@ class HomePageState extends State<HomePage> {
                     Expanded(
                         flex: 4,
                         child: Container(
-                          child: Weather(),
+                          child: AnimatedHorizontalCalendar(
+                              tableCalenderIcon: Icon(
+                                Icons.calendar_today,
+                                color: Colors.white,
+                              ),
+                              date: DateTime.now(),
+                              textColor: Colors.black45,
+                              backgroundColor: Colors.white,
+                              tableCalenderThemeData:
+                                  ThemeData.light().copyWith(
+                                primaryColor: Colors.black,
+                                accentColor: Colors.red,
+                                colorScheme:
+                                    ColorScheme.light(primary: Colors.grey),
+                                buttonTheme: ButtonThemeData(
+                                    textTheme: ButtonTextTheme.primary,),
+                              ),
+                              selectedColor: Colors.redAccent,
+                              onDateSelected: (date) {
+                                selectedDate = date;
+                              }),
                         )),
                   ],
                 ),
