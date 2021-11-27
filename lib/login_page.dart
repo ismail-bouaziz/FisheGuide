@@ -1,4 +1,5 @@
 import 'package:fish/home_page.dart';
+import 'package:fish/phone_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 class LoginPage extends StatefulWidget {
@@ -137,7 +138,7 @@ class LoginPageState extends State<LoginPage> {
                                   flex: 10,
                                   child: TextButton(
                                     onPressed: () {
-                                      print("Sign Up with Phone");
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PhoneAuth()));
                                     },
                                     child: Text(
                                       "Phone",
