@@ -163,6 +163,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.0"
+<<<<<<< HEAD
+=======
+  http:
+    dependency: "direct main"
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.4"
+>>>>>>> 7d09abd4550975f184ddff1bd3bc15789b410e59
   http_parser:
     dependency: transitive
     description:
@@ -336,6 +346,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+  weather_icons:
+    dependency: "direct main"
+    description:
+      name: weather_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
 sdks:
   dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.5.0"
