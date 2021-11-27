@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_icons/weather_icons.dart';
 
-Future<WeatherAlbum> fetchAlbum() async {
+Future<WeatherAlbum> fetchAlbum(String location) async {
   final response = await http
-      .get(Uri.parse('http://api.weatherapi.com/v1/current.json?key=523be3f0e0eb46b2af6212602212611&q=London&aqi=no'));
+      .get(Uri.parse('http://api.weatherapi.com/v1/current.json?key=523be3f0e0eb46b2af6212602212611&q=$location&aqi=no'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -70,7 +70,8 @@ class WeatherState extends State<Weather> {
   @override
   void initState() {
     super.initState();
-    futureAlbum = fetchAlbum();
+    String location = "Tunisia";
+    futureAlbum = fetchAlbum(location);
   }
 
   @override
@@ -85,6 +86,7 @@ class WeatherState extends State<Weather> {
               if (snapshot.hasData) {
                 return  Center(
                   child:  Container(
+                        alignment: Alignment.center,
                         width: double.infinity,
                         height: 150,
                         child: Column(
@@ -92,34 +94,38 @@ class WeatherState extends State<Weather> {
                             Row(
                               children: [
                                 const Expanded(
-                                  child: Text("  Météo",
-                                      style: TextStyle(
-                                          fontSize: 14, fontWeight: FontWeight.bold)),
+                                  child:
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 30.0),
+                                    child: Text("Météo",
+                                        style: TextStyle(
+                                            fontSize: 20, fontWeight: FontWeight.bold)),
+                                  ),
                                 ),
+                                Spacer(),
                                 Expanded(
-                                    child: Row(
-                                      children: [
-                                        const BoxedIcon(WeatherIcons.cloud,),
+                                    child:
                                         Text(snapshot.data!.description,
                                             style:const
                                             TextStyle(fontSize: 14, color: Colors.black45)),
-                                      ],
-                                    ))
+
+                                    )
                               ],
                             ),
-                            Row(
+                            Spacer(),Row(
                               children: [
                                 Column(
                                   children: [
                                     Container(
+                                        margin: const EdgeInsets.only(left: 40.0),
                                         child: Row(children: [
-                                          Text("${snapshot.data!.tem}.°C",
+                                          Text("${snapshot.data!.tem}°C",
                                               style:const TextStyle(
                                                   fontSize: 24, fontWeight: FontWeight.bold)),
                                         ])
                                     ),
                                     Container(
-                                      width: 300,
+                                      width: 360,
                                       height: 60,
                                       alignment: Alignment.bottomCenter,
                                       child: Row(
@@ -129,19 +135,18 @@ class WeatherState extends State<Weather> {
                                           Spacer(),
                                           Text("${snapshot.data!.temMin}.°C",
                                               style:const TextStyle(
-                                                  fontSize: 8,
+                                                  fontSize: 10,
                                                   fontWeight: FontWeight.bold)),
-                                          const BoxedIcon(WeatherIcons.humidity,),
                                           Spacer(),
-                                          Text("${snapshot.data!.hum}.°C",
+                                          const BoxedIcon(WeatherIcons.humidity,),
+                                          Text("${snapshot.data!.hum}hpa",
                                               style: const TextStyle(
-                                                  fontSize: 8, color: Colors.black)),
+                                                  fontSize: 10, color: Colors.black)),
                                           Spacer(),
                                           const BoxedIcon(WeatherIcons.barometer,),
-                                          Spacer(),
                                           Text(" ${snapshot.data!.pressure}",
                                               style: const TextStyle(
-                                                  fontSize: 8, color: Colors.black))
+                                                  fontSize: 10, color: Colors.black))
                                         ],
                                       ),
                                     ),

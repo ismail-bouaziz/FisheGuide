@@ -178,6 +178,7 @@ class LoginPageState extends State<LoginPage> {
     );
   }
   _navigateToHome()async{
+    await Future.delayed(Duration(milliseconds: 7000), (){});
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 }

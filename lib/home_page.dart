@@ -78,13 +78,13 @@ class HomePageState extends State<HomePage> {
                               tableCalenderThemeData:
                                   ThemeData.light().copyWith(
                                 primaryColor: Colors.black,
-                                accentColor: Colors.red,
+                                accentColor: Colors.blueAccent,
                                 colorScheme:
                                     ColorScheme.light(primary: Colors.grey),
                                 buttonTheme: ButtonThemeData(
                                     textTheme: ButtonTextTheme.primary,),
                               ),
-                              selectedColor: Colors.redAccent,
+                              selectedColor: Colors.blueAccent,
                               onDateSelected: (date) {
                                 selectedDate = date;
                               }),
@@ -123,7 +123,7 @@ class HomePageState extends State<HomePage> {
                                   BorderSide(color: Colors.black12, width: 2),
                             )),
                         width: double.infinity,
-                        height: 180,
+                        height: 150,
                         child: Column(
                           children: [
                             Row(/*soliel*/),
@@ -140,6 +140,8 @@ class HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
+                        width: double.infinity,
+                        height: 150,
                         decoration: const BoxDecoration(
                             color: Colors.white,
                             border: Border(
@@ -148,9 +150,10 @@ class HomePageState extends State<HomePage> {
                               bottom:
                               BorderSide(color: Colors.black12, width: 2),
                             )),
-                        width: double.infinity,
-                        height: 180, /*marees*/),
+                         /*marees*/),
                       Container(
+                        width: double.infinity,
+                        height: 150,
                         decoration: const BoxDecoration(
                             color: Colors.white,
                             border: Border(
@@ -159,8 +162,7 @@ class HomePageState extends State<HomePage> {
                               bottom:
                               BorderSide(color: Colors.black12, width: 2),
                             )),
-                        width: double.infinity,
-                        height: 180, /*marees*/),
+                         /*marees*/),
                     ],
                   ),
                 ),
@@ -169,131 +171,138 @@ class HomePageState extends State<HomePage> {
             Expanded(
               flex: 2,
               child: Container(
-                color: Colors.blue,
                 child: Row(
                   children: [
                     //button  menu
                     Expanded(
-                        child: Column(
+                        child: Container(decoration: BoxDecoration(border: Border.all(color: Colors.black12,width: 2)),
+                          child: Column(
                       children: [
-                        /* Expanded(
+                          /* Expanded(
+                              flex: 1,
+                              child: IconButton(alignment: Alignment.center ,
+                                  icon: Icon(Icons.watch),
+                                  onPressed: () {
+                                    print("Previsions");
+                                  }),
+                            ),*/
+                          Expanded(
                             flex: 1,
-                            child: IconButton(alignment: Alignment.center ,
-                                icon: Icon(Icons.watch),
+                            child: TextButton(
+                              onPressed: () {
+                                print("\u{2795} Previsions ");
+                              },
+                              child: Text(
+                                "",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          )
+                      ],
+                    ),
+                        )),
+                    Expanded(
+                        child: Container(decoration: BoxDecoration(border: Border.all(color: Colors.black12,width: 2)),
+                          child: Row(
+                      children: [
+                          Expanded(
+                            flex: 1,
+                            child: IconButton(
+                                padding: EdgeInsets.all(2),
+                                alignment: Alignment.topCenter,
+                                color: Colors.black,
+                                icon: Icon(Icons.add),
                                 onPressed: () {
-                                  print("Previsions");
+                                  print("Sign Up with Facebook");
                                 }),
-                          ),*/
-                        Expanded(
-                          flex: 1,
-                          child: TextButton(
-                            onPressed: () {
-                              print("\u{2795} Previsions ");
-                            },
-                            child: Text(
-                              "\u{2795} Previsions",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.bold),
-                            ),
                           ),
-                        )
-                      ],
-                    )),
-                    Expanded(
-                        child: Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: IconButton(
-                              padding: EdgeInsets.all(2),
-                              alignment: Alignment.topCenter,
-                              color: Colors.white,
-                              icon: Icon(Icons.facebook),
+                          Expanded(
+                            flex: 5,
+                            child: TextButton(
                               onPressed: () {
                                 print("Sign Up with Facebook");
-                              }),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: TextButton(
-                            onPressed: () {
-                              print("Sign Up with Facebook");
-                            },
-                            child: Text(
-                              "Facebook",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.bold),
+                              },
+                              child: Text(
+                                "",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
-                        )
+                          )
                       ],
-                    )),
+                    ),
+                        )),
                     Expanded(
-                        child: Row(
+                        child: Container(decoration: BoxDecoration(border: Border.all(color: Colors.black12,width: 2)),
+                          child: Row(
                       children: [
-                        Expanded(
-                          flex: 1,
-                          child: IconButton(
-                              padding: EdgeInsets.all(2),
-                              alignment: Alignment.topCenter,
-                              color: Colors.white,
-                              icon: Icon(Icons.facebook),
+                          Expanded(
+                            flex: 1,
+                            child: IconButton(
+                                padding: EdgeInsets.all(2),
+                                alignment: Alignment.topCenter,
+                                color: Colors.black,
+                                icon: Icon(Icons.add),
+                                onPressed: () {
+                                  print("Sign Up with Facebook");
+                                }),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: TextButton(
                               onPressed: () {
                                 print("Sign Up with Facebook");
-                              }),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: TextButton(
-                            onPressed: () {
-                              print("Sign Up with Facebook");
-                            },
-                            child: Text(
-                              "Facebook",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.bold),
+                              },
+                              child: Text(
+                                "",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
-                        )
+                          )
                       ],
-                    )),
+                    ),
+                        )),
                     Expanded(
-                        child: Row(
+                        child: Container(decoration: BoxDecoration(border: Border.all(color: Colors.black12,width: 2)),
+                          child: Row(
                       children: [
-                        Expanded(
-                          flex: 1,
-                          child: IconButton(
-                              padding: EdgeInsets.all(2),
-                              alignment: Alignment.topCenter,
-                              color: Colors.white,
-                              icon: Icon(Icons.facebook),
+                          Expanded(
+                            flex: 1,
+                            child: IconButton(
+                                padding: EdgeInsets.all(2),
+                                alignment: Alignment.topCenter,
+                                color: Colors.black,
+                                icon: Icon(Icons.add),
+                                onPressed: () {
+                                  print("Sign Up with Facebook");
+                                }),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: TextButton(
                               onPressed: () {
                                 print("Sign Up with Facebook");
-                              }),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: TextButton(
-                            onPressed: () {
-                              print("Sign Up with Facebook");
-                            },
-                            child: Text(
-                              "Facebook",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.bold),
+                              },
+                              child: Text(
+                                "",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
-                        )
+                          )
                       ],
-                    )),
+                    ),
+                        )),
                   ],
                 ),
               ),
