@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "329649589372",
+    "project_id": "fisheguide-6e14b",
+    "storage_bucket": "fisheguide-6e14b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329649589372:android:aa24f063008b0de8ce0df9",
+        "android_client_info": {
+          "package_name": "com.example.fish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329649589372-5suacm5tfojrmol5hmlu65gom18kh24m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fish",
+            "certificate_hash": "89298f01de47a9983f64ce2c04abdca7e649986b"
+          }
+        },
+        {
+          "client_id": "329649589372-ua9efdlulk90g1ncp1av5ja1ncof31uv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqU8QpC_rdBeXXlJuc0iIXoe0O1DP92Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329649589372-ua9efdlulk90g1ncp1av5ja1ncof31uv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
